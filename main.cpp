@@ -23,12 +23,17 @@ using namespace std;
 
 int main()
 {
-      // Create a game
-      // Use this instead to create a mini-game:   Game g(3, 5, 2);
-    Game g(10, 12, 40);
-
-      // Play the game
-    g.play();
+    Arena a(1, 4);
+    a.addPlayer(1, 4);
+    a.addRabbit(1, 1);
+    a.setCellStatus(1, 2, HAS_POISON);
+    while (a.getCellStatus(1, 2) == HAS_POISON)
+          a.moveRabbits();
+    a.moveRabbits();
+    a.history().display();
+    cout << "====" << endl;
+      
+    return 0;
 }
 
 
